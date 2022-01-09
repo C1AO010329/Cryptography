@@ -35,9 +35,8 @@ def sameMod():
 
     m = pow(c1, s1, n) * pow(c2, s2, n) % n
 
-    print(m)
-    print(binascii.a2b_hex(hex(m)[2:]))
-    result = binascii.a2b_hex(hex(m)[2:])
+    result = binascii.a2b_hex(hex(m)[-16:]).decode('ascii')
+
     return result
 
 

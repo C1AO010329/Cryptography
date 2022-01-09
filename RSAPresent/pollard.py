@@ -26,6 +26,7 @@ def pollardResolve():
         d = gmpy2.invert(e, framePhi)
         m = gmpy2.powmod(c, d, N)
         plaintext.append(binascii.a2b_hex(hex(m)[2:]))
+        print(f"Frame{index_list[i]}:{(binascii.a2b_hex(hex(m)[-16:])).decode('ascii')}")
     return plaintext
 
 
@@ -40,4 +41,3 @@ if __name__ == "__main__":
             T.append(tmp[256:512])
             S.append(tmp[512:768])
     plaintext = pollardResolve()
-    print(plaintext)

@@ -38,7 +38,10 @@ def lowE():
     x, y = ChineseRemainder(data)
 
     pt = gmpy2.iroot(gmpy2.mpz(x), 5)
+    print(binascii.a2b_hex(hex(pt[0])[-16:]).decode('ascii'))
+
     return binascii.a2b_hex(hex(pt[0])[2:])
+
 
 
 if __name__ == "__main__":
@@ -52,4 +55,3 @@ if __name__ == "__main__":
             T.append(tmp[256:512])
             S.append(tmp[512:768])
     plaintext = lowE()
-    print(plaintext)
