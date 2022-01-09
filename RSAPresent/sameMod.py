@@ -11,7 +11,7 @@ def egcd(a, b):
 
 
 # 共模攻击
-def same_mod():
+def sameMod():
     index1 = 0
     index2 = 0
     for i in range(21):
@@ -26,7 +26,6 @@ def same_mod():
     s = egcd(e1, e2)
     s1 = s[1]
     s2 = s[2]
-    # 求模反元素
     if s1 < 0:
         s1 = - s1
         c1 = gmpy2.invert(c1, n)
@@ -53,5 +52,5 @@ if __name__ == "__main__":
             T.append(tmp[256:512])
             S.append(tmp[512:768])
     # 共模攻击
-    plaintext0_and_4 = same_mod()
-    print(plaintext0_and_4)
+    plaintext = sameMod()
+    print(plaintext)

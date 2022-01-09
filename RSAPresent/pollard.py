@@ -13,7 +13,7 @@ def p1(n):
     return d
 
 
-def pollard_resolve():
+def pollardResolve():
     index_list = [2, 6, 19]
     plaintext = []
     for i in range(3):
@@ -39,5 +39,5 @@ if __name__ == "__main__":
             F.append(tmp[0:256])
             T.append(tmp[256:512])
             S.append(tmp[512:768])
-    plaintext2_6_19 = pollard_resolve()
-    print(plaintext2_6_19)
+    plaintext = pollardResolve()
+    print(plaintext)

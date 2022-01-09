@@ -11,7 +11,7 @@ def egcd(a, b):
         return g, x - (b // a) * y, y
 
 
-def Chinese_remainder(items):
+def ChineseRemainder(items):
     N = 1
     for a, n in items:
         N *= n
@@ -26,7 +26,7 @@ def Chinese_remainder(items):
     return result % N, N
 
 
-def low_e():
+def lowE():
     sessions = [{"c": int(S[3], 16), "n": int(F[3], 16)},
                 {"c": int(S[8], 16), "n": int(F[8], 16)},
                 {"c": int(S[12], 16), "n": int(F[12], 16)},
@@ -35,7 +35,7 @@ def low_e():
     data = []
     for session in sessions:
         data += [(session['c'], session['n'])]
-    x, y = Chinese_remainder(data)
+    x, y = ChineseRemainder(data)
 
     pt = gmpy2.iroot(gmpy2.mpz(x), 5)
     return binascii.a2b_hex(hex(pt[0])[2:])
@@ -51,5 +51,5 @@ if __name__ == "__main__":
             F.append(tmp[0:256])
             T.append(tmp[256:512])
             S.append(tmp[512:768])
-    plaintext = low_e()
-    print(plaintext.decode())
+    plaintext = lowE()
+    print(plaintext)

@@ -1,9 +1,8 @@
 import binascii
-
 import gmpy2
 
 
-def same_factor():
+def sameFactor():
     plaintexts = []
     index = []
     for i in range(21):
@@ -50,5 +49,5 @@ if __name__ == "__main__":
             F.append(tmp[0:256])
             T.append(tmp[256:512])
             S.append(tmp[512:768])
-    plaintext = same_factor()
+    plaintext = sameFactor()
     print(plaintext)

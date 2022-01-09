@@ -6,7 +6,6 @@ import math
 
 def fermat(n):
     B = math.factorial(2 ** 14)
-    u = 0
     v = 0
     i = 0
     u0 = gmpy2.iroot(n, 2)[0] + 1
@@ -20,7 +19,7 @@ def fermat(n):
     return p
 
 
-def fermat_resolve():
+def fermatResolve():
     for i in range(10, 14):
         N = int(F[i], 16)
         p = fermat(N)
@@ -46,6 +45,5 @@ if __name__ == "__main__":
     d = gmpy2.invert(e, framePhi10)
     m = gmpy2.powmod(c, d, n)
     final_plain = binascii.a2b_hex(hex(m)[2:])
-    # 费马分解法
-    fermat_resolve()
+    fermatResolve()
     print(final_plain)
